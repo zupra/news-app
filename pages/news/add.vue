@@ -31,6 +31,19 @@
     )
 
   client-only
+    // TODO: редактор текста типа https://github.com/scrumpy/tiptap
+    div
+      i !TODO пока что markdown-редактор, синтаксис: 
+      a.bold(
+        target="_blank"
+        href="https://markdown-it.github.io/"
+      ) Пример 1
+      | 
+      a.bold(
+        target="_blank"
+        href="https://commonmark.org/help/"
+      ) Пример 2
+
     vue-simplemde(
       v-model="article.content"
     )

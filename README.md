@@ -1,10 +1,12 @@
 # news-app
 
-> My flawless Nuxt.js project
+> приложение "Редактор новостей" Nuxt.js project
+
+Бесплатный heroku Иногда может "уснуть" секунд 10 - и бывает надо подождать сервер.
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
@@ -20,3 +22,5 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+![Test Image 4](https://raw.githubusercontent.com/zupra/news-app/master/static/news_add.png)
