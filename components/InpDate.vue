@@ -179,7 +179,7 @@ $M = ($width / 4)
 
   .Calendar
     position absolute
-    z-index 5
+    z-index 100
 
 .Calendar
   background #FFF

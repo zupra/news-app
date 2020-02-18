@@ -24,7 +24,8 @@
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
     "v-markdown-editor": "^1.1.9",
-    "vue-markdown-it": "^0.9.4"
+    "vue-markdown-it": "^0.9.4",
+    "vue-simplemde": "^1.0.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",

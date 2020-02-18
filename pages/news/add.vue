@@ -1,7 +1,7 @@
 <template lang="pug">
 .Wrap
 
-  pre {{article}}
+  //- pre {{article}}
 
   N-link.button.button-outline(
     to="/news/"
@@ -13,43 +13,43 @@
     .flex
       input(
         type="text"
-        v-model="article.title" placeholder="title"
+        v-model="article.title"
       )
 
-  label preview текст
+  label
     div
-      small оптимально 400 символов / набрано: {{optimalPreviewSize}}
+      | preview текст
+      small &emsp; оптимально 400 символов / набрано: {{optimalPreviewSize}}
     textarea(
-      v-model="article.preview" placeholder="preview"
+      v-model="article.preview"
     )
 
-  InpDate(
-    @setdate="article.published_at = $event"
-  )
+  b дата публикации
+  .flex
+    InpDate.mb-3(
+      @setdate="article.published_at = $event"
+    )
 
-  //- no-ssr
-  //-   Editor(
-  //-     v-model="content"
-  //-   )
+  client-only
+    vue-simplemde(
+      v-model="article.content"
+    )
+
+
+  button.mt-4(
+    @click="POST"
+  ) Добавить/Создать
 
   hr
-  button(
-    @click="POST"
-  ) Добавить
-
 
 </template>
 
 <script>
-// import 'v-markdown-editor/dist/index.css'
-// import Editor from 'v-markdown-editor'
-
 import InpDate from '~/components/InpDate.vue'
 
 export default {
   components: {
     InpDate
-    // Editor
   },
   data() {
     return {
@@ -81,3 +81,9 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+.vue-simplemde
+  position relative
+  z-index 11
+</style>

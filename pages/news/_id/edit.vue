@@ -4,29 +4,56 @@
     :to="`/news/${$route.params.id}`"
   ) « Назад к статье
 
-  
   label.my-4 title заголовок
     .flex
       input(
         type="text"
-        v-model="article.title" placeholder="title"
+        v-model="article.title"
       )
 
-  label preview текст
+  label
     div
-      small оптимально 400 символов / набрано: {{optimalPreviewSize}}
+      | preview текст
+      small &emsp; оптимально 400 символов / набрано: {{optimalPreviewSize}}
     textarea(
-      v-model="article.preview" placeholder="preview"
+      v-model="article.preview"
+    )
+
+  b дата публикации
+  .flex
+    InpDate.mb-3(
+      :propSetDateFrom="new Date(article.published_at)"
+      @setdate="article.published_at = $event"
+    )
+
+  client-only
+    // TODO: редактор текста типа https://github.com/scrumpy/tiptap
+    div
+      i !TODO пока что markdown-редактор, синтаксис: 
+      a.bold(
+        target="_blank"
+        href="https://markdown-it.github.io/"
+      ) Пример 1
+      | 
+      a.bold(
+        target="_blank"
+        href="https://commonmark.org/help/"
+      ) Пример 2
+    vue-simplemde(
+      v-model="article.content"
     )
 
   button(
     @click="PUT"
   ) Редактировать
 
-  pre {{$data}}
+  hr
+  //- pre {{$data}}
 </template>
 
 <script>
+import InpDate from '~/components/InpDate.vue'
+
 export default {
   /*
   validate({ params }) {
@@ -34,6 +61,9 @@ export default {
     return /^\d+$/.test(params.id);
   },
   */
+  components: {
+    InpDate
+  },
   async asyncData({ app, params }) {
     const data = await app.$axios.$get(`/articles/${params.id}`)
     return { article: data }
@@ -61,4 +91,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="stylus" scoped>
+.vue-simplemde
+  position relative
+  z-index 11
+</style>

@@ -29,7 +29,10 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: {
+    color: '#26a69a',
+    height: '5px'
+  },
   /*
    ** Global CSS
    */
@@ -37,7 +40,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~plugins/click-outside'],
+  plugins: [
+    '~plugins/click-outside',
+    { src: '~plugins/nuxt-simplemde-plugin.js', mode: 'client' }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
